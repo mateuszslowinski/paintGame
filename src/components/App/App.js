@@ -6,6 +6,7 @@ import './App.css';
 
 export const App = () => {
     const [cellsArray, setCellsArray] = useState(createBoard());
+    const [moves, setMoves] = useState(35);
 
     const renderCells = () => {
         return cellsArray.map((cell, index) => (
@@ -16,10 +17,18 @@ export const App = () => {
             />
         ))
     };
+
+
+    const handleColorClick = (color) => {
+        console.log(color)
+        setMoves(moves - 1)
+    };
+
     return (
         <div className="App">
             <div className='game__container'>
                 <h1>Witaj w Paint Game</h1>
+                <h2>Masz {moves} ruchów</h2>
                 <div className='board'>
                     {renderCells()}
                 </div>
@@ -31,6 +40,7 @@ export const App = () => {
                                 key={index}
                                 style={{backgroundColor: color}}
                                 className='button'
+                                onClick={() => handleColorClick(color)}
                             />
                         ))}
                     </div>

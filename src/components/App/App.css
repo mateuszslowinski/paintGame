@@ -6,6 +6,10 @@
     height: 100vh;
 }
 
+h2 {
+    font-size: 2.5rem;
+}
+
 .game__container h1 {
     font-size: 5rem;
 }
@@ -31,9 +35,8 @@
     background-color: #002130;
 }
 
-.buttons__container h2 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+.buttons__container div {
+    margin-top: 15px;
 }
 
 .button {
