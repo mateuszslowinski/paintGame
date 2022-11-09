@@ -1,3 +1,9 @@
+button {
+    padding: 5px;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
 .game__container {
     display: flex;
     flex-direction: column;
@@ -62,19 +68,18 @@ h2 {
     border-width: 4px;
 }
 
-.reset__btn {
+.btn {
     margin: 15px 0 5px;
     font-size: 2.2rem;
-    padding: 5px;
+    padding: 8px;
     text-transform: uppercase;
     border-radius: 10px;
     background-color: #efddf1;
     border: none;
-    cursor: pointer;
     transition: .7s;
 }
 
-.reset__btn:hover {
+.btn:hover {
     background-color: #be99dd;
     color: whitesmoke;
 }
@@ -96,4 +101,9 @@ h2 {
 
 .won {
     background-color: green;
+}
+
+.won p {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
 }

@@ -7,7 +7,8 @@ import './App.css';
 export const App = () => {
     const [cellsArray, setCellsArray] = useState(createBoard());
     const [moves, setMoves] = useState(MOVES);
-    const [wonGame, setWonGame] = useState(false);
+    const [isWonGame, setIsWonGame] = useState(false);
+    const [numberOfWonGames, setNumberOfWonGames] = useState(1);
 
     const renderCells = () => {
         return cellsArray.map((cell, index) => (
@@ -52,7 +53,7 @@ export const App = () => {
         })
 
         if (activeCellIndexArray.length === cellsArray.length) {
-            setWonGame(true);
+            setIsWonGame(true);
         }
 
         setCellsArray(foundedColorsArray)
@@ -62,7 +63,15 @@ export const App = () => {
     const restartGame = () => {
         setCellsArray(createBoard());
         setMoves(MOVES);
-        setWonGame(false);
+        setNumberOfWonGames(1)
+        setIsWonGame(false);
+    };
+
+    const handleNextGame = () => {
+        setCellsArray(createBoard());
+        setNumberOfWonGames(prevState => prevState + 1)
+        setMoves(MOVES - numberOfWonGames);
+        setIsWonGame(false);
     };
 
     return (
@@ -74,7 +83,18 @@ export const App = () => {
                     <div className='board'>
                         {renderCells()}
                         {moves === 0 ? <div className='lost'>Przegrana</div> : null}
-                        {wonGame ? <div className='won'>Gratulacje wygrałeś</div> : null}
+                        {isWonGame
+                            ? <div className='won'>
+                                <p>Gratulacje wygrałeś</p>
+                                <button
+                                    className='btn'
+                                    onClick={handleNextGame}
+                                >
+                                    Następna gra
+                                </button>
+                            </div>
+                            : null
+                        }
                     </div>
                     <div className='buttons__container'>
                         <h3>Wybierz kolor:</h3>
@@ -90,8 +110,8 @@ export const App = () => {
                             ))}
                         </div>
                         <button
-                            className='reset__btn'
-                            onClick={() => restartGame()}
+                            className='btn'
+                            onClick={restartGame}
                         >
                             Restart
                         </button>
