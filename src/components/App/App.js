@@ -53,6 +53,11 @@ export const App = () => {
         setMoves(moves - 1)
     };
 
+    const restartGame = () => {
+        setCellsArray(createBoard());
+        setMoves(MOVES);
+    };
+
     return (
         <div className="App">
             <div className='game__container'>
@@ -73,6 +78,12 @@ export const App = () => {
                             />
                         ))}
                     </div>
+                    <button
+                        className='reset__btn'
+                        onClick={() => restartGame()}
+                    >
+                        Restart
+                    </button>
                 </div>
             </div>
         </div>

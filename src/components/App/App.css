@@ -47,3 +47,18 @@ h2 {
     cursor: pointer;
     border-width: 4px;
 }
+.reset__btn{
+   margin: 15px 0 5px;
+    font-size: 2.2rem;
+    padding: 5px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    background-color: #efddf1;
+    border: none;
+    cursor: pointer;
+    transition: .7s;
+}
+.reset__btn:hover{
+    background-color: #be99dd;
+    color: whitesmoke;
+}
