@@ -10,6 +10,18 @@
     font-size: 5rem;
 }
 
+.board {
+    display: grid;
+    grid-template-rows: repeat(14, 1fr);
+    grid-template-columns: repeat(14, 1fr);
+    margin-top: 16px;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+}
+
 .buttons__container {
     display: flex;
     flex-direction: column;
@@ -18,10 +30,12 @@
     padding: 15px;
     background-color: #002130;
 }
-.buttons__container h2{
+
+.buttons__container h2 {
     font-size: 3rem;
     margin-bottom: 10px;
 }
+
 .button {
     width: 40px;
     height: 40px;
