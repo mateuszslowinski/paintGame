@@ -7,6 +7,7 @@ import './App.css';
 export const App = () => {
     const [cellsArray, setCellsArray] = useState(createBoard());
     const [moves, setMoves] = useState(MOVES);
+    const [wonGame, setWonGame] = useState(false);
 
     const renderCells = () => {
         return cellsArray.map((cell, index) => (
@@ -49,6 +50,11 @@ export const App = () => {
             }
             return square
         })
+
+        if (activeCellIndexArray.length === cellsArray.length) {
+            setWonGame(true);
+        }
+
         setCellsArray(foundedColorsArray)
         setMoves(moves - 1)
     };
@@ -56,6 +62,7 @@ export const App = () => {
     const restartGame = () => {
         setCellsArray(createBoard());
         setMoves(MOVES);
+        setWonGame(false);
     };
 
     return (
@@ -67,9 +74,10 @@ export const App = () => {
                     <div className='board'>
                         {renderCells()}
                         {moves === 0 ? <div className='lost'>Przegrana</div> : null}
+                        {wonGame ? <div className='won'>Gratulacje wygrałeś</div> : null}
                     </div>
                     <div className='buttons__container'>
-                        <h3 >Wybierz kolor:</h3>
+                        <h3>Wybierz kolor:</h3>
                         <div>
                             {COLORS.map((color, index) => (
                                 <button
@@ -92,5 +100,4 @@ export const App = () => {
             </div>
         </div>
     );
-
 }

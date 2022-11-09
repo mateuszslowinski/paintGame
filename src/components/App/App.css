@@ -44,7 +44,8 @@ h2 {
     height: 70%;
     background-color: #002130;
 }
-.buttons__container h3{
+
+.buttons__container h3 {
     font-size: 2.5rem;
 }
 
@@ -78,7 +79,7 @@ h2 {
     color: whitesmoke;
 }
 
-.lost {
+.lost, .won {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,5 +92,8 @@ h2 {
     background-color: red;
     transform: translate(-50%, -50%);
     font-size: 3.5rem;
+}
 
+.won {
+    background-color: green;
 }
