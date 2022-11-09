@@ -63,29 +63,31 @@ export const App = () => {
             <div className='game__container'>
                 <h1>Witaj w Paint Game</h1>
                 <h2>Masz {moves} ruchów</h2>
-                <div className='board'>
-                    {renderCells()}
-                    {moves === 0 ? <div className='lost'>Przegrana</div> : null}
-                </div>
-                <div className='buttons__container'>
-                    <h2>Wybierz kolor:</h2>
-                    <div>
-                        {COLORS.map((color, index) => (
-                            <button
-                                key={index}
-                                style={{backgroundColor: color}}
-                                className='button'
-                                disabled={moves === 0}
-                                onClick={() => handleColorClick(color)}
-                            />
-                        ))}
+                <div className='board__and__button__container'>
+                    <div className='board'>
+                        {renderCells()}
+                        {moves === 0 ? <div className='lost'>Przegrana</div> : null}
                     </div>
-                    <button
-                        className='reset__btn'
-                        onClick={() => restartGame()}
-                    >
-                        Restart
-                    </button>
+                    <div className='buttons__container'>
+                        <h3 >Wybierz kolor:</h3>
+                        <div>
+                            {COLORS.map((color, index) => (
+                                <button
+                                    key={index}
+                                    style={{backgroundColor: color}}
+                                    className='button'
+                                    disabled={moves === 0}
+                                    onClick={() => handleColorClick(color)}
+                                />
+                            ))}
+                        </div>
+                        <button
+                            className='reset__btn'
+                            onClick={() => restartGame()}
+                        >
+                            Restart
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

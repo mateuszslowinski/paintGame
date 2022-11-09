@@ -1,17 +1,24 @@
 .game__container {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
     height: 100vh;
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
 }
 
 .game__container h1 {
-    font-size: 5rem;
+    font-size: 4rem;
+    margin: 30px 0 20px;
+}
+
+.board__and__button__container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
 }
 
 .board {
@@ -29,11 +36,16 @@ h2 {
 
 .buttons__container {
     display: flex;
+    align-self: center;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 15px;
+    padding: 0 10px;
+    height: 70%;
     background-color: #002130;
+}
+.buttons__container h3{
+    font-size: 2.5rem;
 }
 
 .buttons__container div {
@@ -48,8 +60,9 @@ h2 {
     cursor: pointer;
     border-width: 4px;
 }
-.reset__btn{
-   margin: 15px 0 5px;
+
+.reset__btn {
+    margin: 15px 0 5px;
     font-size: 2.2rem;
     padding: 5px;
     text-transform: uppercase;
@@ -59,23 +72,24 @@ h2 {
     cursor: pointer;
     transition: .7s;
 }
-.reset__btn:hover{
+
+.reset__btn:hover {
     background-color: #be99dd;
     color: whitesmoke;
 }
 
-.lost{
+.lost {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     width: 80%;
     height: 80%;
     background-color: red;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     font-size: 3.5rem;
 
 }
