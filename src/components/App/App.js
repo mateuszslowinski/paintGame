@@ -23,6 +23,7 @@ export const App = () => {
         cellsArray[0].active = true;
         cellsArray[0].value = color;
 
+
         if (moves !== MOVES) {
             for (let i = 0; i < WIDTH * WIDTH; i++) {
                 if (cellsArray[i].active === true) {
@@ -48,7 +49,6 @@ export const App = () => {
             }
             return square
         })
-
         setCellsArray(foundedColorsArray)
         setMoves(moves - 1)
     };
@@ -65,6 +65,7 @@ export const App = () => {
                 <h2>Masz {moves} ruchów</h2>
                 <div className='board'>
                     {renderCells()}
+                    {moves === 0 ? <div className='lost'>Przegrana</div> : null}
                 </div>
                 <div className='buttons__container'>
                     <h2>Wybierz kolor:</h2>
@@ -74,6 +75,7 @@ export const App = () => {
                                 key={index}
                                 style={{backgroundColor: color}}
                                 className='button'
+                                disabled={moves === 0}
                                 onClick={() => handleColorClick(color)}
                             />
                         ))}

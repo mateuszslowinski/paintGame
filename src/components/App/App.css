@@ -19,6 +19,7 @@ h2 {
     grid-template-rows: repeat(14, 1fr);
     grid-template-columns: repeat(14, 1fr);
     margin-top: 16px;
+    position: relative;
 }
 
 .cell {
@@ -61,4 +62,20 @@ h2 {
 .reset__btn:hover{
     background-color: #be99dd;
     color: whitesmoke;
+}
+
+.lost{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:50%;
+    left:50%;
+    width: 80%;
+    height: 80%;
+    background-color: red;
+    transform: translate(-50%,-50%);
+    font-size: 3.5rem;
+
 }
