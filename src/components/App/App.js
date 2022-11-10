@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {createBoard} from "../../utils/generateBoard";
+import {Board} from "../Board/Board";
 import {COLORS, MOVES, WIDTH} from "../../constatns";
-
 import './App.css';
 
 export const App = () => {
@@ -10,21 +10,9 @@ export const App = () => {
     const [isWonGame, setIsWonGame] = useState(false);
     const [numberOfWonGames, setNumberOfWonGames] = useState(1);
 
-    const renderCells = () => {
-        return cellsArray.map((cell, index) => (
-            <div
-                key={index}
-                className='cell'
-                style={{backgroundColor: cell.value}}
-            />
-        ))
-    };
-
-
     const handleColorClick = (color) => {
         cellsArray[0].active = true;
         cellsArray[0].value = color;
-
 
         if (moves !== MOVES) {
             for (let i = 0; i < WIDTH * WIDTH; i++) {
@@ -67,35 +55,22 @@ export const App = () => {
         setIsWonGame(false);
     };
 
-    const handleNextGame = () => {
-        setCellsArray(createBoard());
-        setNumberOfWonGames(prevState => prevState + 1)
-        setMoves(MOVES - numberOfWonGames);
-        setIsWonGame(false);
-    };
-
     return (
         <div className="App">
             <div className='game__container'>
                 <h1>Witaj w Paint Game</h1>
                 <h2>Masz {moves} ruchów</h2>
                 <div className='board__and__button__container'>
-                    <div className='board'>
-                        {renderCells()}
-                        {moves === 0 ? <div className='lost'>Przegrana</div> : null}
-                        {isWonGame
-                            ? <div className='won'>
-                                <p>Gratulacje wygrałeś</p>
-                                <button
-                                    className='btn'
-                                    onClick={handleNextGame}
-                                >
-                                    Następna gra
-                                </button>
-                            </div>
-                            : null
-                        }
-                    </div>
+                    <Board
+                        cellsArray={cellsArray}
+                        isWonGame={isWonGame}
+                        moves={moves}
+                        setCellsArray={setCellsArray}
+                        numberOfWonGames={numberOfWonGames}
+                        setIsWonGame={setIsWonGame}
+                        setMoves={setMoves}
+                        setNumberOfWonGames={setNumberOfWonGames}
+                    />
                     <div className='buttons__container'>
                         <h3>Wybierz kolor:</h3>
                         <div>
