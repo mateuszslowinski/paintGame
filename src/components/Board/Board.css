@@ -1,0 +1,36 @@
+.board {
+    display: grid;
+    grid-template-rows: repeat(14, 1fr);
+    grid-template-columns: repeat(14, 1fr);
+    margin-top: 16px;
+    position: relative;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+}
+
+.lost, .won {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    background-color: red;
+    transform: translate(-50%, -50%);
+    font-size: 3.5rem;
+}
+
+.won {
+    background-color: green;
+}
+
+.won p {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
