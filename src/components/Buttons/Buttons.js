@@ -1,4 +1,4 @@
-import {createBoard} from "../../utils/generateBoard";
+import {RestartBtn} from "./RestartBtn/RestartBtn";
 import {COLORS, MOVES, WIDTH} from "../../constatns";
 import './Buttons.css';
 
@@ -41,13 +41,6 @@ export const Buttons = ({cellsArray, moves, setIsWonGame, setCellsArray, setMove
         setMoves(moves - 1)
     };
 
-
-    const restartGame = () => {
-        setCellsArray(createBoard());
-        setMoves(MOVES);
-        setNumberOfWonGames(1)
-        setIsWonGame(false);
-    };
     return (
         <div className='buttons__container'>
             <h3>Wybierz kolor:</h3>
@@ -62,12 +55,11 @@ export const Buttons = ({cellsArray, moves, setIsWonGame, setCellsArray, setMove
                     />
                 ))}
             </div>
-            <button
-                className='btn'
-                onClick={restartGame}
-            >
-                Restart
-            </button>
+            <RestartBtn
+                setIsWonGame={setIsWonGame}
+                setCellsArray={setCellsArray}
+                setNumberOfWonGames={setNumberOfWonGames}
+                setMoves={setMoves}/>
         </div>
     )
 }
